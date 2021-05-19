@@ -3,4 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_news">News</string>
     <string name="title_profile">User\'s Profile</string>
+    <string name="banner_app_name">COVID 19\nCough Detector</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="account_question">Don\'t have account yet?</string>
+    <string name="register_button">Register Here</string>
+    <string name="login_button">Login</string>
+    <string name="hint_password_verify">Verify your password</string>
+    <string name="hint_id_card">ID card number (KTP)</string>
+    <string name="hint_phone_number">Enter your phone number</string>
+    <string name="register_submit_button">Register</string>
 </resources>
