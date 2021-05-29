@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_news">News</string>
     <string name="title_profile">User\'s Profile</string>
+    <string name="check">Are you feeling unwell today ?</string>
+    <string name="btn_check" translatable="false">Check your condition now!</string>
+    <string name="cough">Cough</string>
+    <string name="wear_mask">Wear face mask</string>
+    <string name="topic">Since the start of the coronavirus outbreak same place have fully embraced wearing face masks, and anyone cought without one risks becoming a social...</string>
+
 </resources>
