@@ -1,6 +1,7 @@
 package com.juniortech.coviddetector.ui.authentication
 
 import android.app.ActivityOptions
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -18,12 +19,13 @@ import com.juniortech.coviddetector.R
 import com.juniortech.coviddetector.data.source.remote.RemoteDataSource.Companion.DATABASE_URL
 import com.juniortech.coviddetector.databinding.ActivityLoginBinding
 import com.juniortech.coviddetector.ui.base.MainActivity
-import com.juniortech.coviddetector.ui.profile.ProfileViewModel
-import com.juniortech.coviddetector.viewmodel.ViewModelFactory
+import dmax.dialog.SpotsDialog
+
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var fAuth: FirebaseAuth
+    private lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
         }
+
+        dialog = SpotsDialog.Builder().setContext(this@LoginActivity).build()
+        dialog.setMessage("Loading...")
 
         binding.registerButton.setOnClickListener(this)
         binding.loginButton.setOnClickListener(this)
@@ -73,6 +78,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val email = binding.emailLogin.editText?.text.toString().trim()
         val password = binding.passwordLogin.editText?.text.toString().trim()
 
+        dialog.show()
         fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, object : OnCompleteListener<AuthResult>{
             override fun onComplete(task: Task<AuthResult>) {
                 if (task.isSuccessful){
@@ -85,10 +91,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                dialog.dismiss()
             }
         })
-
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
     }
 
     private fun validateEmail(): Boolean{

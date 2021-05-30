@@ -13,4 +13,11 @@
     <string name="hint_id_card">ID card number (KTP)</string>
     <string name="hint_phone_number">Enter your phone number</string>
     <string name="register_submit_button">Register</string>
+    <string name="banner_home">How are you today,\n$1s?</string>
+    <string name="banner_news">Get to know\nAbout Covid-19</string>
+    <string name="banner_profile">Let us know your\ncurrent information</string>
+    <string name="log_out">Log Out</string>
+    <string name="edit_profile_button">Edit Your Profile</string>
+    <string name="change_password_button">Change Password</string>
+    <string name="check_conditions">Check your conditions now!</string>
 </resources>

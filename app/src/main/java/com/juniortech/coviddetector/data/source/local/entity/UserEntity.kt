@@ -18,6 +18,9 @@ data class UserEntity (
     @ColumnInfo(name = "email")
     var userEmail: String,
 
+    @ColumnInfo(name = "photo")
+    var userPhoto: String,
+
     @ColumnInfo(name = "idCard")
     var userIdCard: String,
 

@@ -3,6 +3,7 @@ package com.juniortech.coviddetector.ui.authentication
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.tasks.OnCompleteListener
@@ -16,13 +17,14 @@ import com.juniortech.coviddetector.data.source.remote.RemoteDataSource.Companio
 import com.juniortech.coviddetector.data.source.remote.response.UserResponse
 import com.juniortech.coviddetector.databinding.ActivityRegisterBinding
 import com.juniortech.coviddetector.ui.base.MainActivity
-import com.juniortech.coviddetector.ui.profile.ProfileViewModel
 import com.juniortech.coviddetector.viewmodel.ViewModelFactory
+import dmax.dialog.SpotsDialog
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var fAuth: FirebaseAuth
     private lateinit var userDb: DatabaseReference
+    private lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getWindow().setEnterTransition(null)
+
+        dialog = SpotsDialog.Builder().setContext(this@RegisterActivity).build()
+        dialog.setMessage("Loading...")
 
         fAuth = FirebaseAuth.getInstance()
         userDb = FirebaseDatabase.getInstance(DATABASE_URL).getReference()
@@ -44,9 +49,10 @@ class RegisterActivity : AppCompatActivity() {
 
         val email = binding.emailRegister.editText?.text.toString().trim()
         val password = binding.passwordVerifyRegister.editText?.text.toString().trim()
-        val idCard = binding.passwordVerifyRegister.editText?.text.toString().trim()
-        val phoneNumber = binding.passwordVerifyRegister.editText?.text.toString().trim()
+        val idCard = binding.idCardRegister.editText?.text.toString().trim()
+        val phoneNumber = binding.phoneRegister.editText?.text.toString().trim()
 
+        dialog.show()
         fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener( object: OnCompleteListener<AuthResult>{
             override fun onComplete(task: Task<AuthResult>) {
                 if (task.isSuccessful()) {
@@ -63,6 +69,7 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                dialog.dismiss()
             }
 
         })
@@ -76,7 +83,7 @@ class RegisterActivity : AppCompatActivity() {
     ) {
         if (user != null) {
             val userResponse = UserResponse(userId = user.uid, userStatus = 1, userAddress = "_", userPhone = phoneNumber,
-            userEmail = email, userIdCard = idCard, userName = "_")
+            userEmail = email, userIdCard = idCard, userName = "_", userPhoto = "_")
             val factory = ViewModelFactory.getInstance(this)
             val viewModel = ViewModelProvider(this, factory)[AuthViewModel::class.java]
 

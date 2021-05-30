@@ -1,48 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
     tools:context=".ui.profile.ProfileFragment">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/text_email"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/logout_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="48dp"
-        android:background="@drawable/white_rounded_bg"
-        android:fontFamily="@font/poppins_regular"
-        android:padding="0dp"
-        android:text="logout"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        android:transitionName="button_animate"
-        app:backgroundTint="@color/accent_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="-150dp"
+                app:cardCornerRadius="80dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/splash_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/virus_bg" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="240dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/person3" />
+
+                    <TextView
+                        android:id="@+id/app_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/banner_profile"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Your Status"
+                android:textColor="@color/title_text_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/latest_checkup_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="-8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Latest check-up: $1s"
+                android:textColor="@color/body_text_color"
+                android:textSize="12sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="18dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="8dp">
+
+                    <ImageView
+                        android:id="@+id/status_image"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/ic_baseline_negative_circle_24" />
+
+                    <TextView
+                        android:id="@+id/status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/status_image"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="You're Safe"
+                        android:textColor="@color/recover_color"
+                        android:textSize="32sp" />
+
+                    <TextView
+                        android:id="@+id/status_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/status_text"
+                        android:layout_marginTop="-8dp"
+                        android:layout_toEndOf="@+id/status_image"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="(OTG)"
+                        android:textColor="@color/light_text_color"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Your Profile"
+                android:textColor="@color/title_text_color"
+                android:textSize="18sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:layout_marginBottom="80dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="18dp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user_image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="32dp"
+                        android:src="@drawable/user_placeholder"
+                        app:civ_border_color="@color/accent_color2"
+                        app:civ_border_width="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/change_image"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="2dp"
+                        android:src="@drawable/edit_icon"
+                        app:layout_constraintBottom_toBottomOf="@+id/user_image"
+                        app:layout_constraintEnd_toEndOf="@+id/user_image"
+                        app:layout_constraintHorizontal_bias="1.1"
+                        app:layout_constraintStart_toStartOf="@+id/user_image"
+                        app:layout_constraintTop_toTopOf="@+id/user_image"
+                        app:layout_constraintVertical_bias="1.1" />
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="32dp"
+                        android:fontFamily="@font/poppins_regular"
+                        tools:text="(Set Your Name)"
+                        android:textColor="@color/body_text_color"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_image"/>
+
+                    <ImageView
+                        android:id="@+id/idcard_image"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_baseline_person_blue_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/user_name"
+                        app:layout_constraintVertical_bias="0.050000012"/>
+
+                    <TextView
+                        android:id="@+id/user_idcard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/body_text_color"
+                        android:textSize="14sp"
+                        tools:text="3505454668795445"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/idcard_image"
+                        app:layout_constraintTop_toTopOf="@+id/idcard_image"
+                        app:layout_constraintBottom_toBottomOf="@id/idcard_image"/>
+
+                    <ImageView
+                        android:id="@+id/email_image"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_baseline_email_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/user_idcard"/>
+
+                    <TextView
+                        android:id="@+id/user_email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/body_text_color"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/email_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/email_image"
+                        app:layout_constraintTop_toTopOf="@+id/email_image"
+                        tools:text="healthyperson@gmail.com" />
+
+                    <ImageView
+                        android:id="@+id/phone_image"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_baseline_local_phone_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_email"/>
+
+                    <TextView
+                        android:id="@+id/user_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/body_text_color"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/phone_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/phone_image"
+                        app:layout_constraintTop_toTopOf="@id/phone_image"
+                        tools:text="085733376105" />
+
+                    <ImageView
+                        android:id="@+id/address_image"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_baseline_location_on_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_phone"/>
+
+                    <TextView
+                        android:id="@+id/user_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/body_text_color"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/address_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/address_image"
+                        app:layout_constraintTop_toTopOf="@id/address_image"
+                        tools:text="Jl. Imam Bonjol, Rt 1, Rw 2" />
+
+                    <Button
+                        android:id="@+id/edit_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="18dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginHorizontal="32dp"
+                        android:background="@drawable/white_rounded_bg"
+                        app:backgroundTint="@color/accent_color"
+                        android:text="@string/edit_profile_button"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_regular"
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_address"
+                        app:layout_constraintBottom_toTopOf="@id/change_password"/>
+
+                    <Button
+                        android:id="@+id/change_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="32dp"
+                        android:paddingHorizontal="18dp"
+                        android:background="@drawable/white_rounded_bg"
+                        app:backgroundTint="@color/white"
+                        android:text="@string/change_password_button"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/accent_color"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/edit_button"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

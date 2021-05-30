@@ -12,6 +12,7 @@
     <color name="title_text_color">#303030</color>
     <color name="body_text_color">#4B4B4B</color>
     <color name="light_text_color">#959595</color>
+    <color name="placeholder">#6FB6B6B6</color>
     <color name="infected_color">#FF8748</color>
     <color name="death_color">#FF4848</color>
     <color name="recover_color">#36C12C</color>

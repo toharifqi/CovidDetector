@@ -12,33 +12,19 @@ import com.juniortech.coviddetector.databinding.FragmentNewsBinding
 
 class NewsFragment : Fragment() {
 
-    private lateinit var newsViewModel: NewsViewModel
-    private var _binding: FragmentNewsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentNewsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        newsViewModel =
-            ViewModelProvider(this).get(NewsViewModel::class.java)
-
-        _binding = FragmentNewsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        newsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        binding = FragmentNewsBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 }

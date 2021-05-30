@@ -3,6 +3,8 @@
     package="com.juniortech.coviddetector">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidDetector">
-        <activity android:name=".ui.authentication.RegisterActivity"></activity>
+        <activity android:name=".ui.check.CheckActivity"></activity>
+        <activity android:name=".ui.authentication.RegisterActivity" />
         <activity android:name=".ui.authentication.LoginActivity" />
         <activity
             android:name=".ui.base.SplashActivity"
@@ -22,9 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.base.MainActivity">
-
-        </activity>
+        <activity android:name=".ui.base.MainActivity"></activity>
     </application>
 
 </manifest>

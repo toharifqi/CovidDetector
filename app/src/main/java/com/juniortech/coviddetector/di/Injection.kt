@@ -11,7 +11,7 @@ object Injection {
     fun provideRepository(context: Context): CovidRepository{
         val database = CovidDatabase.getInstance(context)
 
-        val remoteDataSource = RemoteDataSource.getInstance()
+        val remoteDataSource = RemoteDataSource.getInstance(context)
         val localDataSource = LocalDataSource.getInstance(database.covidDao())
         val appExecutors = AppExecutors()
         return  CovidRepository.getInstance(remoteDataSource, localDataSource, appExecutors)

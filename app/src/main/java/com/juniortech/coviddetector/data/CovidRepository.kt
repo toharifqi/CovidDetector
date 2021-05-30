@@ -40,10 +40,11 @@ class CovidRepository private constructor(
                 val user = UserEntity(
                     userId = data.userId,
                     userEmail = data.userEmail,
+                    userPhoto = data.userPhoto,
                     userName = data.userName,
                     userIdCard = data.userIdCard,
                     userPhone = data.userPhone,
-                    userAddress = data.userPhone,
+                    userAddress = data.userAddress,
                     userStatus = data.userStatus
                 )
                 localDataSource.insertUser(user)

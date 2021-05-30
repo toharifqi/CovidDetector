@@ -8,6 +8,7 @@ data class UserResponse (
     val userId: String,
     val userName: String,
     val userEmail: String,
+    val userPhoto: String,
     val userIdCard: String,
     val userPhone: String,
     val userAddress: String,
