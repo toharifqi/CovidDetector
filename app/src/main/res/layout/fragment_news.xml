@@ -50,6 +50,19 @@
                         android:fontFamily="@font/poppins_regular"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="22dp"
+                android:text="Sorry, this feature is under construction..."
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/light_text_color"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:src="@drawable/under_construction"/>
 
         </LinearLayout>
     </ScrollView>

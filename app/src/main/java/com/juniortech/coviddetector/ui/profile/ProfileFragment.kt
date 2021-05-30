@@ -48,7 +48,6 @@ class ProfileFragment : Fragment() {
                         Status.SUCCESS -> if (userEntity.data != null){
                             binding.progressBar.visibility = View.GONE
                             populateView(userEntity.data)
-
                         }
                         Status.ERROR -> {
                             binding.progressBar.visibility = View.GONE

@@ -27,9 +27,7 @@ class RemoteDataSource private constructor(context: Context){
 
     fun getUserById(userId: String): LiveData<ApiResponse<UserResponse>>{
         val resultUser = MutableLiveData<ApiResponse<UserResponse>>()
-        userDb.child(userId)
-
-        userDb.addValueEventListener(object : ValueEventListener{
+        userDb.child(userId).addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val userIdRemote = snapshot.child("userId").value.toString()
                 val userName = snapshot.child("userName").value.toString()

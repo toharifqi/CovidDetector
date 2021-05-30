@@ -20,7 +20,7 @@
     <string name="edit_profile_button">Edit Your Profile</string>
     <string name="change_password_button">Change Password</string>
     <string name="check_conditions">Check your conditions now!</string>
-    <string name="check">Are you feeling unwell today ?</string>
+    <string name="check">Are you feeling\nunwell today ?</string>
     <string name="btn_check" translatable="false">Check your condition now!</string>
     <string name="cough">Cough</string>
     <string name="wear_mask">Wear face mask</string>
