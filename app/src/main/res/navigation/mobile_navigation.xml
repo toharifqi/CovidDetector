@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.juniortech.coviddetector.ui.dashboard.NewsFragment"
+        android:name="com.juniortech.coviddetector.ui.news.NewsFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.juniortech.coviddetector.ui.notifications.ProfileFragment"
+        android:name="com.juniortech.coviddetector.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

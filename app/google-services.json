@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "646639153887",
+    "firebase_url": "https://capstone-project-junior-tech-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "capstone-project-junior-tech",
+    "storage_bucket": "capstone-project-junior-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646639153887:android:5d04c8cd7f1c68c608ef6a",
+        "android_client_info": {
+          "package_name": "com.juniortech.coviddetector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646639153887-4l5nkk98mpku0e4jvon4l0clc2q4d1q7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.juniortech.coviddetector",
+            "certificate_hash": "4373df8483b8700b8141aa02fa53e7239d4987e7"
+          }
+        },
+        {
+          "client_id": "646639153887-ltp0m7r599ldnkaofeepcrumbulsrftj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtwQ0F4z8QY0IN13s2gazB1-d1t8XqEVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646639153887-ltp0m7r599ldnkaofeepcrumbulsrftj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

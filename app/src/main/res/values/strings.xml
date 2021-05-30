@@ -3,6 +3,23 @@
     <string name="title_home">Home</string>
     <string name="title_news">News</string>
     <string name="title_profile">User\'s Profile</string>
+    <string name="banner_app_name">COVID 19\nCough Detector</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="account_question">Don\'t have account yet?</string>
+    <string name="register_button">Register Here</string>
+    <string name="login_button">Login</string>
+    <string name="hint_password_verify">Verify your password</string>
+    <string name="hint_id_card">ID card number (KTP)</string>
+    <string name="hint_phone_number">Enter your phone number</string>
+    <string name="register_submit_button">Register</string>
+    <string name="banner_home">How are you today,\n$1s?</string>
+    <string name="banner_news">Get to know\nAbout Covid-19</string>
+    <string name="banner_profile">Let us know your\ncurrent information</string>
+    <string name="log_out">Log Out</string>
+    <string name="edit_profile_button">Edit Your Profile</string>
+    <string name="change_password_button">Change Password</string>
+    <string name="check_conditions">Check your conditions now!</string>
     <string name="check">Are you feeling unwell today ?</string>
     <string name="btn_check" translatable="false">Check your condition now!</string>
     <string name="cough">Cough</string>
