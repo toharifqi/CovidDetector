@@ -24,6 +24,22 @@
     <string name="btn_check" translatable="false">Check your condition now!</string>
     <string name="cough">Cough</string>
     <string name="wear_mask">Wear face mask</string>
-    <string name="topic">Since the start of the coronavirus outbreak same place have fully embraced wearing face masks, and anyone cought without one risks becoming a social...</string>
+    <string name="topic1">Since the start of the coronavirus outbreak same place have fully embraced wearing face masks, and anyone cought without one risks becoming a social…</string>
+    <string name="topic2">These diseases include gastrointestinal infections. Such as Salmonella, and respiratory infections, such as influenza…</string>
+    <string name="img_description">this is image</string>
+    <string name="record_status">Tap the button to record</string>
+    <string name="record_status_recording">Recording…</string>
+    <string name="record_status_analyzing">Analyzing…</string>
+    <string name="result_covid_positive">You are suspected of having been infected with COVID - 19</string>
+    <string name="result_covid_negative">You are not suspected of being infected with COVID - 19</string>
+    <string name="desc_covid_positive">We will send your account information to the nearest hospital. You may receive phone call in view minutes.</string>
+    <string name="desc_covid_negative">Stay healthy and wear mask every time you go outside your home.</string>
+    <string name="guide_text">We will identify whether you are infected by COVID-19 or not.</string>
+    <string name="guide2_text">Tap button below\nwhen you make a cough</string>
+    <string name="fab_description">fab</string>
+    <string name="retry_btn">Try another check up</string>
+    <string name="home_btn">Go Back to Home</string>
+    <string name="sympthoms_title">Sympthoms</string>
+    <string name="preventions_title">Preventions</string>
 
 </resources>

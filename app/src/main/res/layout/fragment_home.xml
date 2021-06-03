@@ -109,6 +109,37 @@
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/sympthoms_title"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="18sp"
+                android:textColor="@color/title_text_color"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_sympthom"
+                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/preventions_title"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="18sp"
+                android:textColor="@color/title_text_color"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_preventions"
+                android:overScrollMode="never"
+                android:layout_marginHorizontal="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

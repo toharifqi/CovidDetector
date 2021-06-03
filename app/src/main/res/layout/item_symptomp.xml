@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/card_sympt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cd_sympt"
+    <LinearLayout
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:gravity="center"
+        android:orientation="vertical">
         <ImageView
             android:id="@+id/img_sympt"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/caugh" />
-
+            tools:src="@drawable/cough" />
         <TextView
             android:id="@+id/txt_sympt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="35dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/body_text_color"
             android:text="@string/cough"
             android:textSize="12sp" />
+    </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

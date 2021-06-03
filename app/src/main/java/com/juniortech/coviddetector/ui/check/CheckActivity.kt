@@ -2,19 +2,23 @@ package com.juniortech.coviddetector.ui.check
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.AudioFormat
 import android.media.MediaRecorder
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.juniortech.coviddetector.R
 import com.juniortech.coviddetector.databinding.ActivityCheckBinding
+import com.juniortech.coviddetector.ui.base.MainActivity
 import dmax.dialog.SpotsDialog
 import java.io.File
 import java.io.IOException
@@ -27,7 +31,6 @@ class CheckActivity : AppCompatActivity() {
     private lateinit var mFileName: String
     private var permissionToRecordAccepted = false
     private lateinit var mStorage: StorageReference
-    private lateinit var dialog: AlertDialog
 
     private var permission: Array<String> = arrayOf(
         Manifest.permission.RECORD_AUDIO,
@@ -61,9 +64,6 @@ class CheckActivity : AppCompatActivity() {
         mFileName = "${externalCacheDir?.absolutePath}/audiorecordtest.wav"
         mStorage = FirebaseStorage.getInstance().getReference()
 
-        dialog = SpotsDialog.Builder().setContext(this@CheckActivity).build()
-        dialog.setMessage("Uploading your cough sound...")
-
         ActivityCompat.requestPermissions(this, permission, REQUEST_CODE)
 
         var isRecording = false
@@ -71,18 +71,25 @@ class CheckActivity : AppCompatActivity() {
             isRecording = !isRecording
             setRecordState(isRecording)
         }
+        binding.btnHome.setOnClickListener {
+            startActivity(Intent(this@CheckActivity, MainActivity::class.java))
+        }
+        binding.btnRetry.setOnClickListener {
+            reCheckUp()
+        }
     }
 
     private fun setRecordState(isRecording: Boolean) {
         if (isRecording) {
             binding.fab.setImageResource(R.drawable.ic_baseline_pause_white)
             startRecording()
-            binding.recordLabelText.text = "Recording..."
+            binding.recordStatusText.text = getString(R.string.record_status_recording)
         } else {
             binding.fab.setImageResource(R.drawable.ic_baseline_play_arrow_white)
             stopRecording()
             uploadAudio()
-            binding.recordLabelText.text = "Recording stopped"
+            binding.progressBar.visibility = View.VISIBLE
+            binding.recordStatusText.text = getString(R.string.record_status_analyzing)
         }
     }
 
@@ -122,12 +129,72 @@ class CheckActivity : AppCompatActivity() {
         val filePath = fAuth.currentUser?.let {
             mStorage.child("UserCough").child(it.uid).child("$fileId.wav")
         }
-        dialog.show()
-        if (filePath != null) {
-            filePath.putFile(uri).addOnSuccessListener {
-                dialog.dismiss()
-                binding.recordLabelText.text = "Uploading completed..."
-            }
-        }
+//        if (filePath != null) {
+//            filePath.putFile(uri).addOnSuccessListener {
+//                if (getStatus()){
+//                    populatePositive()
+//                }else{
+//                    populateNegative()
+//                }
+//            }
+//        }
+        populateNegative()
+    }
+
+    private fun populatePositive(){
+        binding.progressBar.visibility = View.GONE
+        binding.recordStatusText.visibility = View.GONE
+        binding.guide2Text.visibility = View.GONE
+        binding.fab.isEnabled = false
+        binding.fab.visibility = View.GONE
+
+        binding.imgResult.visibility = View.VISIBLE
+        binding.textResult.visibility = View.VISIBLE
+        binding.textResultDesc.visibility = View.VISIBLE
+        binding.btnRetry.visibility = View.VISIBLE
+        binding.btnHome.visibility = View.VISIBLE
+
+        binding.imgResult.setImageResource(R.drawable.ic_baseline_warning)
+        binding.textResult.text = getString(R.string.result_covid_positive)
+        binding.textResult.setTextColor(ContextCompat.getColor(this@CheckActivity, R.color.death_color))
+        binding.textResultDesc.text = getString(R.string.desc_covid_positive)
+    }
+
+    private fun populateNegative(){
+        binding.progressBar.visibility = View.GONE
+        binding.recordStatusText.visibility = View.GONE
+        binding.guide2Text.visibility = View.GONE
+        binding.fab.isEnabled = false
+        binding.fab.visibility = View.GONE
+
+        binding.imgResult.visibility = View.VISIBLE
+        binding.textResult.visibility = View.VISIBLE
+        binding.textResultDesc.visibility = View.VISIBLE
+        binding.btnRetry.visibility = View.VISIBLE
+        binding.btnHome.visibility = View.VISIBLE
+
+        binding.imgResult.setImageResource(R.drawable.ic_baseline_check_circle)
+        binding.textResult.text = getString(R.string.result_covid_negative)
+        binding.textResult.setTextColor(ContextCompat.getColor(this@CheckActivity, R.color.recover_color))
+        binding.textResultDesc.text = getString(R.string.desc_covid_negative)
+    }
+
+    private fun reCheckUp(){
+        binding.recordStatusText.visibility = View.VISIBLE
+        binding.recordStatusText.text = getString(R.string.record_status)
+        binding.guide2Text.visibility = View.VISIBLE
+        binding.fab.isEnabled = true
+        binding.fab.visibility = View.VISIBLE
+
+        binding.imgResult.visibility = View.GONE
+        binding.textResult.visibility = View.GONE
+        binding.textResultDesc.visibility = View.GONE
+        binding.btnRetry.visibility = View.GONE
+        binding.btnHome.visibility = View.GONE
+    }
+
+    fun getStatus(): Boolean{
+        val state = Random()
+        return state.nextBoolean()
     }
 }
