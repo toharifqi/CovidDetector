@@ -129,16 +129,17 @@ class CheckActivity : AppCompatActivity() {
         val filePath = fAuth.currentUser?.let {
             mStorage.child("UserCough").child(it.uid).child("$fileId.wav")
         }
-//        if (filePath != null) {
-//            filePath.putFile(uri).addOnSuccessListener {
+        if (filePath != null) {
+            filePath.putFile(uri).addOnSuccessListener {
 //                if (getStatus()){
 //                    populatePositive()
 //                }else{
 //                    populateNegative()
 //                }
-//            }
-//        }
-        populateNegative()
+                populateNegative()
+            }
+        }
+
     }
 
     private fun populatePositive(){
