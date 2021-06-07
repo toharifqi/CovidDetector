@@ -5,7 +5,8 @@ Android Covid Detector
 
 A Covid Detector App illustrating Android development practices with Android Jetpack.
 
-This application to identify if user has infected with Covid-19. With this application we can detect if a person gets infected by covid-19 using cough sound. Hence, with this application we can anticipate the infection of covid-19 before it gets worse.  
+The main purpose of this application is to identify if user has infected with Covid-19. With this application we can detect if a person gets infected by covid-19 using cough sound. Hence, we can anticipate the infection of covid-19 before it gets worse.  
+
 Android Covid Detector is currently under development. Some changes (such as database schema modifications).
   
 App Screenshots 
